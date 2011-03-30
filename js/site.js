@@ -51,6 +51,14 @@ $("select.field").live("change", function(event) {
   this.parentNode.className = "filter " + newClassName;
   // If the parent's class is year, then the css shows the year select.
   // The same is true for the class text.
+
+  var adjacent_input = $(this).nextAll(".content");
+  // Only get results if there is any content in the input box for this
+  // particular filter row.
+  if (adjacent_input.val() != "") {
+    get_results_soon();
+  }
+
 });
 
 // If they change the year or text selects, then we should probably refresh the
