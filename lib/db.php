@@ -24,21 +24,17 @@ $db = new DatabaseConnection;
 
 function authors_from($book) {
   global $db;
-  $author_ids = array();
   $authors = array();
 
   $book_id = $db->real_escape_string($book["id"]);
-  $result = $db->execute("select * from authors_books_joiner where book_id = '$book_id'");
-  while ($row = $result->fetch_assoc()) {
-    $author_ids[]= $row["author_id"];
-  }
-  if (!empty($author_ids)) {
-    $author_ids_string = implode(",", $author_ids);
-    $result_authors = $db->execute("select * from authors where id in ($author_ids_string)");
+  $result_authors = $db->execute("select * from authors where id in (select author_id from authors_books_joiner where book_id = '$book_id')");
+
+  if ($result_authors->num_rows > 0) {
     while ($author_row = $result_authors->fetch_assoc()) {
       $authors[]= $author_row;
     }
   }
+
   return $authors;
 }
 

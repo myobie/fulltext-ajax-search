@@ -11,7 +11,7 @@
     </section>
 
     <div id="results">
-      <? include "search-results.php" ?>
+      <? include "templates/search-results.php" ?>
     </div>
 
     <script src="/js/jquery.js"></script>

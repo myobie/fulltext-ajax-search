@@ -2,10 +2,11 @@
   <p id="q-group">
     <input type="search" placeholder="Search Everything" name="q" id="q">
     <button type="submit">Search</button>
-    <a href="#add-filter" id="add-filter-button">Add filter</a>
+    <!-- <a href="#add-filter" id="add-filter-button">Add filter</a> -->
   </p>
 
-  <? ob_start(); // capture all this html so we can stuff it into a javascript variable ?>
+  <!-- Filter HTML for use later -->
+  <!--
   <p class="filter text">
     <select name="field[]" class="field">
       <option value="authors.name">Author Name</option>
@@ -31,18 +32,10 @@
 
     <input type="text" name="content[]" class="content">
 
-    <!-- this input is just to count how many filters there are -->
     <input type="hidden" value="true" name="filters[]">
 
     <a href="#remove-filter" class="remove-button">Remove this filter</a>
   </p>
-  <?
-    $html = ob_get_clean();
-    $html_for_js = rawurlencode($html);
-  ?>
-  <script>
-    var filter_number = 1;
-    var filter_html = unescape("<?= $html_for_js ?>");
-  </script>
+  -->
 </form>
 
