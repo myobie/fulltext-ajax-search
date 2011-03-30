@@ -31,3 +31,22 @@ $(".remove-button").live("click", function(event) {
   $(this).parent().remove(); // find my parent (a p tag) and remove it from the DOM
 });
 
+// If the thing to search is a year, then show the other conditional select
+// that makes sense.
+$("select.field").live("change", function(event) {
+  var newClassName; // create a variable for use to shove stuff into
+
+  if (this.value == "books.year") {
+    newClassName = "year";
+  } else {
+    newClassName = "text";
+  }
+
+  // The above if statement is the same as this next line:
+  // var newClassName = this.value == "books.year" ? "year" : "text";
+
+  this.parentNode.className = "filter " + newClassName;
+  // If the parent's class is year, then the css shows the year select.
+  // The same is try for the class text.
+});
+
