@@ -11,6 +11,17 @@
     $sql .= " where match (title, description, year, isbn) against ('$q' in boolean mode)";
   }
 
+  if (!empty($_POST["filters"])) { // if any filters were posted, then count them
+    $amount = count($_POST["filters"]);
+
+    // if the sql statement doesn't already have a where, then add one
+    if (!preg_match("/where/", $sql)) {
+      $sql .= " where";
+    }
+  } else {
+    $amount = 0;
+  }
+
   $result = $db->execute($sql);
 
   if ($result->num_rows == 0) {
