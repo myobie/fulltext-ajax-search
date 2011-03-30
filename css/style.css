@@ -1,0 +1,18 @@
+html {
+  background: #ddd;
+}
+
+body {
+  width: 600px;
+  padding: 20px;
+  margin: 0 auto;
+  background: #eee;
+  font: 14px/1.6 Helvetica Neue, sans-serif;
+}
+
+.filter.text .year {
+  display: none;
+}
+.filter.year .text {
+  display: none;
+}
