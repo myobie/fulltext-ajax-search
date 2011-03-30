@@ -5,8 +5,7 @@
     <!-- <a href="#add-filter" id="add-filter-button">Add filter</a> -->
   </p>
 
-  <!-- Filter HTML for use later -->
-  <!--
+  <? ob_start(); // capture all this html so we can stuff it into a javascript variable ?>
   <p class="filter text">
     <select name="field[]" class="field">
       <option value="authors.name">Author Name</option>
@@ -36,6 +35,13 @@
 
     <a href="#remove-filter" class="remove-button">Remove this filter</a>
   </p>
-  -->
+  <?
+    $html = ob_get_clean();
+    $html_for_js = rawurlencode($html);
+  ?>
+  <script>
+    var filter_html = unescape("<?= $html_for_js ?>");
+    // in firebug, look at the contents of the filter_html variable
+  </script>
 </form>
 
