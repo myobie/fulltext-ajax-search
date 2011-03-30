@@ -26,3 +26,8 @@ $("#add-filter-button").click(function(event) {
   $("#search").append(filter_html);
 });
 
+$(".remove-button").live("click", function(event) {
+  event.preventDefault();
+  $(this).parent().remove(); // find my parent (a p tag) and remove it from the DOM
+});
+
