@@ -32,6 +32,14 @@ $("#add-filter-button").click(function(event) {
 $(".remove-button").live("click", function(event) {
   event.preventDefault();
   $(this).parent().remove(); // find my parent (a p tag) and remove it from the DOM
+
+  var adjacent_input = $(this).nextAll(".content");
+  // Only get results if there is any content in the input box for this
+  // particular filter row.
+  if (adjacent_input.val() != "") {
+    get_results_soon();
+  }
+
 });
 
 // If the thing to search is a year, then show the other conditional select
