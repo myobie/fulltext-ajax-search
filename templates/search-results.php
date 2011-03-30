@@ -4,10 +4,12 @@
 ?>
 <h1>Search results</h1>
 <?
-  $sql = "";
+  $sql = "select * from books";
 
   // -> Make a query here use $q
-  $result = $sql = "select * from books where match (title, description, year, isbn) against ('$q' in boolean mode)";
+  if (!empty($_POST['q'])) {
+    $sql .= " where match (title, description, year, isbn) against ('$q' in boolean mode)";
+  }
 
   $result = $db->execute($sql);
 
