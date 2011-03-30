@@ -1,6 +1,6 @@
 <form id="search" method="post" action="search.php">
   <p id="q-group">
-    <input type="search" placeholder="Search Everything" name="q" id="q">
+    <input type="search" placeholder="Search Everything" name="q" id="q" value="<?= $_POST['q'] ?>">
     <button type="submit">Search</button>
     <!-- <a href="#add-filter" id="add-filter-button">Add filter</a> -->
   </p>

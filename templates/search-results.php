@@ -7,6 +7,7 @@
   $sql = "";
 
   // -> Make a query here use $q
+  $result = $sql = "select * from books where match (title, description, year, isbn) against ('$q' in boolean mode)";
 
   $result = $db->execute($sql);
 
