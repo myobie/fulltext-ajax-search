@@ -47,6 +47,6 @@ $("select.field").live("change", function(event) {
 
   this.parentNode.className = "filter " + newClassName;
   // If the parent's class is year, then the css shows the year select.
-  // The same is try for the class text.
+  // The same is true for the class text.
 });
 
