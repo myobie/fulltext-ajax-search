@@ -18,3 +18,11 @@ $("#q").keyup(function(event) { // for every key they hit
   clearTimeout(delay_timeout_id); // stop any currently running timers
   delay_timeout_id = setTimeout(get_results, 300); // and setup to get results really soon from now
 });
+
+// *** filters ***
+
+$("#add-filter-button").click(function(event) {
+  event.preventDefault();
+  $("#search").append(filter_html);
+});
+

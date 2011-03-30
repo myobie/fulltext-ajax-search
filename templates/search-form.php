@@ -2,7 +2,7 @@
   <p id="q-group">
     <input type="search" placeholder="Search Everything" name="q" id="q" value="<?= $_POST['q'] ?>">
     <button type="submit">Search</button>
-    <!-- <a href="#add-filter" id="add-filter-button">Add filter</a> -->
+    <a href="#add-filter" id="add-filter-button">Add filter</a>
   </p>
 
   <? ob_start(); // capture all this html so we can stuff it into a javascript variable ?>
