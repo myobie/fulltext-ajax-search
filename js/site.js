@@ -53,3 +53,16 @@ $("select.field").live("change", function(event) {
   // The same is true for the class text.
 });
 
+// If they change the year or text selects, then we should probably refresh the
+// results.
+$("select.year, select.text").live("change", function(event) {
+  var adjacent_input = $(this).nextAll(".content");
+  // Only get results if there is any content in the input box for this
+  // particular filter row.
+  if (adjacent_input.val() != "") {
+    get_results_soon();
+  }
+});
+
+
+
