@@ -18,7 +18,7 @@ $("#search").submit(function(event) {
   get_results();
 });
 
-$("#q").keyup(function(event) { // for every key they hit
+$("#q, .content").live("keyup", function(event) { // for every key they hit in the everything search or in a filter text box
   get_results_soon();
 });
 
